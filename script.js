@@ -32,7 +32,8 @@ window.addEventListener("load", function() {
                  document.querySelector("#launchStatus").innerHTML = "Shuttle not ready for launch.";
                  document.querySelector("#launchStatus").style.color = 'red';
               }
-              if (fuelInputToNum > 10000) {
+              if (fuelInputToNum >= 10000) {
+               document.querySelector("#faultyItems").style.visibility = 'visible';
                document.querySelector("#fuelStatus").innerHTML = "Fuel level high enough for launch.";
               }
               if (cargoMassToNum > 10000) {
@@ -41,10 +42,12 @@ window.addEventListener("load", function() {
                  document.querySelector("#launchStatus").innerHTML = "Shuttle not ready for launch.";
                  document.querySelector("#launchStatus").style.color = 'red';
               }
-              if (cargoMassToNum < 10000) {
+              if (cargoMassToNum <= 10000) {
+               document.querySelector("#faultyItems").style.visibility = 'visible';
                document.querySelector("#cargoStatus").innerHTML = "Cargo mass low enough for launch.";
               }
-               if (fuelInputToNum > 10000 && cargoMassToNum < 10000) {
+               if (fuelInputToNum >= 10000 && cargoMassToNum <= 10000) {
+                 document.querySelector("#faultyItems").style.visibility = 'visible';
                  document.querySelector("#launchStatus").innerHTML = "Shuttle is ready for launch.";
                  document.querySelector("#launchStatus").style.color = 'green'; 
               }
